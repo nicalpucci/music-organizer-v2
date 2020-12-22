@@ -97,12 +97,16 @@ public class MusicOrganizer
     /**
      * Encuentra determinados archivos
      */
-    public void listMatching(String searchString){
+    public void listMatching(String searchString){ 
         for (String filename : files ){
             if(filename.contains(searchString)){
                 System.out.println(filename);
+            } 
+             else{
+                System.out.println("¡Error! No existe");
+                break;
             }
-        }
+        }        
     }
 }
 
