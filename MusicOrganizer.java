@@ -93,5 +93,16 @@ public class MusicOrganizer
             position++;
         }
     }
+    
+    /**
+     * Encuentra determinados archivos
+     */
+    public void listMatching(String searchString){
+        for (String filename : files ){
+            if(filename.contains(searchString)){
+                System.out.println(filename);
+            }
+        }
+    }
 }
 
