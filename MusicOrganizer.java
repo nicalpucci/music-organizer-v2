@@ -113,8 +113,12 @@ public class MusicOrganizer
     /**
      * reproduce los primeros segundo de cada canción
      */
-    public void playSamplesArtist(String artist){
-        
+    public void playSamplesArtist(String artista) {
+        for(String file : files) {
+            if(file.contains(artista)) {
+               player.playSample(file); 
+            }
+        }
     }
 }
 
