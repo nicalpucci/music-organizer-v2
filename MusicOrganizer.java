@@ -98,15 +98,23 @@ public class MusicOrganizer
      * Encuentra determinados archivos
      */
     public void listMatching(String searchString){ 
+        boolean existe = false;
         for (String filename : files ){
             if(filename.contains(searchString)){
                 System.out.println(filename);
-            } 
-             else{
-                System.out.println("¡Error! No existe");
-                break;
+                existe = true;
             }
+        }
+        if(!existe){
+            System.out.println("¡Error! No existe");
         }        
+    }
+    
+    /**
+     * reproduce los primeros segundo de cada canción
+     */
+    public void playSamplesArtist(String artist){
+        
     }
 }
 
