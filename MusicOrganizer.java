@@ -87,9 +87,10 @@ public class MusicOrganizer
      * List all items of files
      */
     public void listAllFiles() {
-        int position = 1;
-        for (String filename : files){
-            System.out.println(position + ". " + filename);
+        int position = 0;
+        while (position < files.size()) {
+            String filename = files.get(position);
+            System.out.println(filename);
             position++;
         }
     }
@@ -117,6 +118,17 @@ public class MusicOrganizer
         for(String file : files) {
             if(file.contains(artista)) {
                player.playSample(file); 
+            }
+        }
+    }
+    
+    /**
+     * Borra todas las canciones que contengan el texto que vayamos a escribir
+     */
+    public void deleteSongsWithText(String textoPurgante){
+        for(String file : files) {
+            if(file.contains(textoPurgante)) {
+                files.remove(file);
             }
         }
     }
