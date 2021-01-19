@@ -13,7 +13,7 @@ public class MusicOrganizer
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+
     /**
      * Create a MusicOrganizer
      */
@@ -22,7 +22,7 @@ public class MusicOrganizer
         files = new ArrayList<String>();
         player = new MusicPlayer();
     }
-    
+
     /**
      * Add a file to the collection.
      * @param filename The file to be added.
@@ -31,7 +31,7 @@ public class MusicOrganizer
     {
         files.add(filename);
     }
-    
+
     /**
      * Return the number of files in the collection.
      * @return The number of files in the collection.
@@ -40,7 +40,7 @@ public class MusicOrganizer
     {
         return files.size();
     }
-    
+
     /**
      * List a file from the collection.
      * @param index The index of the file to be listed.
@@ -52,7 +52,7 @@ public class MusicOrganizer
             System.out.println(filename);
         }
     }
-    
+
     /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
@@ -82,7 +82,7 @@ public class MusicOrganizer
     {
         player.stop();
     }
-    
+
     /**
      * List all items of files
      */
@@ -94,7 +94,7 @@ public class MusicOrganizer
             System.out.println(position + ". " + filename);
         }
     }
-    
+
     /**
      * Encuentra determinados archivos
      */
@@ -110,18 +110,18 @@ public class MusicOrganizer
             System.out.println("¡Error! No existe");
         }        
     }
-    
+
     /**
      * reproduce los primeros segundo de cada canción
      */
     public void playSamplesArtist(String artista) {
         for(String file : files) {
             if(file.contains(artista)) {
-               player.playSample(file); 
+                player.playSample(file); 
             }
         }
     }
-    
+
     /**
      * Borra todas las canciones que contengan el texto que vayamos a escribir
      */
@@ -131,6 +131,28 @@ public class MusicOrganizer
                 files.remove(file);
             }
         }
+    }
+
+    /**
+     * Localiza el índice del primer archivo que se corresponde con
+     * la cadena de búsqueda indicada .
+     * @param searchString La cadena que hay que buscar.
+     * @return El índice de la primera aparición o -1 si
+     * no se encuentra ninguna correspondencia
+     */
+    public int findFirst(String searchString){
+        int resultado = -1;
+        int encontrado = 0;
+        boolean found = true;
+        while(encontrado < files.size() && found){
+            String filename = files.get(encontrado);
+            if(filename.contains(searchString)){
+                resultado = encontrado;
+                found = false;
+            }
+            encontrado++;
+        }
+        return resultado;
     }
 }
 
