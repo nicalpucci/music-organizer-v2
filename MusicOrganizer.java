@@ -143,12 +143,13 @@ public class MusicOrganizer
     public int findFirst(String searchString){
         int resultado = -1;
         int index = 0;
-        boolean searching = true;
-        while(index < files.size() && searching){
+        //boolean searching = true;
+        while(index < files.size()){
             String filename = files.get(index);
             if(filename.contains(searchString)){
                 resultado = index;
-                searching = false;
+                //searching = false;
+                index = 9999;
             }
             index++;
         }
